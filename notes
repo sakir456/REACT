@@ -171,6 +171,41 @@ and this api call returns malicious data which may  leads  attacker get access t
 JSX does not run everything blindly
 
 
+config driven UI- UI controlled by api(just google it for proper defination, hard to write in words)
+
+-there are two types of export
+
+-default export
+ex:
+export default Header(component)
+import Header from "path";
+
+-named export
+ex:
+export const CDN_URL(component)
+import { CDN_URL } from "path"
+
+-React Hooks
+(normal js  utility function)
+-use state
+-use effect
+
+-whenever state variable updates react rerenders the componenet
+
+*very important pls google
+[Reconcilation Alogorithm(react fiber)(google very important)
+
+react element or component is virtual DOM 
+
+we know JSX before converting is not HTML but HTML like syntax and is object and this object is only Virtual DOM
+-virtual DOM is a representation of Actual DOM
+
+why react is fast??
+-because  it has virtual DOM it has diff algorithm which is very efficient it does efficient DOM manipulation it can find the diff and update the UI understand with example what happens here in restaurant card example before clicking button there are 15 cards this is 1st object(before filter) and after clicking there are say suppose 7 cards left(after filter)then virtual DOM compares two object and then updates the UI thats makes react fast 
+
+(google React FIbre architechture and click on GITHUB link only )
+-diff algorithm]
+
 
 
 
