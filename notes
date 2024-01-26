@@ -1,0 +1,193 @@
+npm abbrevation is not node package manager npm does not stands for anything
+npm does job of managing packages but its abbreavation is not node package manager
+
+npm is biggest package manager any package youu want to use in project can be hosted in npm 
+package.json is configuration for npm
+
+packages are also known as dependencies
+parcel,webpack and vite are  bundles which bundles the file together which is then push to production
+
+there are 2 dependencies that app can have 
+1.dev dependency-it is generally requirred in development phase
+2.normal dependency-this can be used in produuction also
+( read more about it online but this is basic difference)
+
+we install parcel as dev dependency thats why we use -D while installing via command npm install -D parcel
+
+we install parcel from npm npm already has parcel we are fetching parcel from npm while installing
+
+what is caret and tilde??
+caret (^)- here parcel version is 2.11.0 but what if tomoorrow or some other day another minor version of parcel comes in like 2.11.4 then if there is caret sign is there parcel will automatically upgrade to latest  minor version .
+tilde(~)-if tilde sign is there then parcel will automatically upgraded to lqatest major version like 3.0.0
+
+it is alaways recommended to keep caret  and not tilde reason being because whenever some major upgrade comes there may be lot of things may break into your code
+
+
+package.json keeps the approx version of package whereeas package.;lock.json keeps the exact verion of package 
+for example if tomorrow pacel version 2.11.4 conmes out then in package.json has 2.11.0 only and has caret sign but package.lock.json conatins 2.11.4 latest version
+
+we heard many times developerss comp,laining that it is working in my local but in not working in the production so package.lock.json keeps track of exact version that is used in local that to be deployed in production
+
+
+node modules conatins all the codes that we fetched from npm
+
+nodemodules is like database which conatins all the data(codes) or packages or files that our project needs
+
+ 
+parcel is a package and parcel has own dependencies and those dependencies have own dependencies and this is called transactive dependencies.
+
+package.lock.json conatins all the exact versions of all the transactive dependencies and dependencies used in our project
+
+node_modules conatin all the dependencies codes used in our project an dit can be regenerated 
+
+if you have package.json and package.lock.json you can recreate node modules via command npm install
+
+-ALAWAYS REMEMBER-whatever you can regenerate do not put on git
+
+npm is used for installing package while npx is used to executing the package
+
+
+cdn links is not prefeered way to bring react or react-dom into your project why??
+-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+-above is URL to fetch react but problem is everytime we have to make a network call to unpkg to fetch react or react-dom into our project what if wehave already have inside node modules then we do not have to make ebverytime network call 
+-second thing is here react 18 version is there but what if tomorrow react 19 or 20 or some other versions comes everytime we have change URL manually but what is er already have inside package.json and pckage.lock.json then we do not have update it mnaually it will automatically get updated 
+
+-install react and react dom through npm doesnot mean we can use react and react dom in our project it just installs inside node module we nned to import react from node modules via import React from "react" and import React-DOM from "react-dom" to use in our project this needs to be done in js file
+
+-when you do npx parcel index.html parcel genertes a developmental build of your project and host it to localhost1234 so when i generates a developmental build it puts everything to dist folder (everything you see on browser page comes from dist folder not from index.html,styles.css or app .js file)(this is for develpment build) 
+
+-for production build we use npx parcel build index.html and same as happens as development build
+
+
+
+
+
+
+
+
+
+
+steps to  start create own react app
+-npm init
+-npm install -D parcel(-D to install parcel(bundler)as dev dependency)
+-npm install(use only if you want to recreate node_modules (optional))
+-npx parcel index.html(created a server localhost:1234 and now our app will be available at local host)
+-npm install react(to install react into project remember we do not use -D as in case of parcel installation because we want react in normal dependency)
+-npm install reract-dom(to install react-dom)
+-use import React from "react";
+import ReactDOM from "react-dom/client"; (in js file)
+-script tag in html file set type="module"(same script tag which connects js file to html REMEMBER:if after applying type="module" content does not appear on browser page and throws error just delete .parcel-cache file and run command npx parcel index.html it will work also parcel-cache file reinstall)
+-remove  "main": "App.js", in package.json file (it is written above "scripts": {
+    "test": "jest"
+  },)
+  -delete .parcel-cache file
+  -use npx parcel index.html to regenerate .parcel-cache,dist file(developmental build)
+  -use npx parcel build index.html to build production build
+-in package.json file add in script add "start":"parcel index.html",
+    "build":"parcel build index.html",
+    -now to open devlopmental server use npm run start or npm start instead of npx parcel index.html 
+    -for production build use npm run build instead npx parcel build index.html
+
+    remember:.parcel_cache file,dist and node_modules will not available at git hub whenever you download this repo alawayas regenerate this three files by:
+    node_modules-npm intall
+    .parcel-cache and dist-npx parcel index.html
+
+
+remember:if after opening live server at localhost 1234 using npm install build fails just delete .parcel-cache and node _modules file and regenerate it using
+npm install for node_modules and npx parcel index.html for .parcel-cache
+  
+
+ what does parcel do for you??
+ -creates dev build
+ -creates local server
+ -HMR=hot module replacement (automatically refreshes your browser page)
+ -file watching algorithm (written in c++)
+ -caching-faster builds
+ -image optimization
+ -if we create production build it will minify our file also(minification)
+ -Bundling
+ -compress the file
+ -consistent hashing
+ -code splitting
+ -diffrential bundling-supports older browsers
+ -Diagnostic
+ -error handling
+ -it gives feature of hosting it to https also
+ -Tree shaking-remove unused code for you
+ -different dev and prod bundles
+
+ just visit parceljs.org read about what parcel does for you?? 
+
+  find answer why react apps are fast?? it is not just react which makes apps fast  but there is parcel,bundler and so many things with react which makes  app fast read more on internet while preparing for interview
+
+
+
+
+react.createElement=>REACTelement(object)=>render=>html Element
+(react.createElement does not create html element but an REATElement which is object when this object is rendered it becomes html element)
+
+-JSX is not part of react JSX is different react is different
+
+-JSX is not HTML in JAVASCRIPT it is HTML like syntax or XML like syntax but not HTML
+
+-JS engine only understand language ECMAscript(ES6)
+
+-JSX is not valid javascript but then how come JSX code working in javascript??
+here comes parcel parcel transpile  JSX before it reaches JS also parcel is not doing by itself parcel is just manager parcel does this job using Babel
+
+-babel is javascript compiler also transpiler
+
+JSX=>react.createElement=>REACTelement(object)=>render=>html Element
+JSX code is converted to react.createElement by babel which gives us reactelement which is object which is when rendered becomes HTMl element this is how JSX code works
+-if you want to give attributes to JSX you have to use camelcase
+
+-React component-everything in web page is component there are two types
+ 1.React class based component-old way of writing code(nobody uses it now)
+ 2. React functional component-new way of writing code (it is a function that returns JSX code or it can also defiened as javascript function which returns react element)
+ -rules for react functional component
+it should be function
+<!-- it render syntax example:root.render(<HeadingComponent2/>) -->
+
+component composition-nesting one functional compenent inside another called component composition ex: 
+<!-- const Title=()=> (
+<!-- <h1 className="head">
+react by jsx
+</h1>
+);
+
+const HeadingComponent2=()=>(
+    <div id="conatiner">
+    <Title />
+     <h1 className="heading">react component functional component</h1>
+     </div>
+)
+const root=ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent2 />) --> 
+
+-suppose there is const number=50 then i can pass inside functional component inside {} bracket but what if const number =api.getdata (some api call)
+and this api call returns malicious data which may  leads  attacker get access to run anything in your browser then JSX is so powerful that it takes cares of this also
+JSX does not run everything blindly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
