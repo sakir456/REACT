@@ -185,8 +185,7 @@ ex:
 export const CDN_URL(component)
 import { CDN_URL } from "path"
 
--React Hooks
-(normal js  utility function)
+-React Hooks-it is normal js  utility function
 -use state
 -use effect
 
@@ -205,6 +204,24 @@ why react is fast??
 
 (google React FIbre architechture and click on GITHUB link only )
 -diff algorithm]
+
+-there are two aprroaches as soon as page loads
+
+(1)loads---->api call----->Render
+(2)loads---->render---->api call---->Rerender
+
+in React we alaways use second approach 
+
+- use Effect functions are alaways called after rendering the component(jsx code)
+
+-shimmer UI-a shimmer UI resembles the page actual UI so user will understand how quickly the web or mobile app will load(it actually dummy Ui to make UX better it actually gives impression that data is about to Load shimmer is fake UI)
+
+-why do we need state variable why dont we use normal variable like javascript in React??
+when we use normal variable like const a=2 and when we update it (a=3) then value gets updated there is no way UI takes up value but when we use state variable it quickly rerenders which updates  the UI that the reason not using normal variable
+
+-whenever state variables update react rerenders the component
+
+
 
 
 
