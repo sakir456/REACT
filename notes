@@ -221,6 +221,31 @@ when we use normal variable like const a=2 and when we update it (a=3) then valu
 
 -whenever state variables update react rerenders the component
 
+-use Effect - we know use Effect is called by two arguments a callback function{} and dependency array[] so,
+ -if there is no dependency array,use effect will be called at every render
+ -if there is dependency array[] and its empty then it will call only once at initial render
+ -if there is something inside dependency array then [btnNameReact] use effect will be called everytime btnNameReact will update
+
+-state variable are alaways meant to be declared inside component at top level of component
+-Never make state variable inside if else,for loop ,inside functions etc
+
+-rafce-write and enter it will create component automatically
+-useRouteError-it is an hook given to us by react-router-dom
+
+-when something starts with "use" then its a hook this is common convention in industry
+
+-link is tool given by react router dom
+
+-there are 2 types of routing in web apps
+1.server side routing-in traditional times what happens is when we click "about us" it will  make a network call fetches the data then whole page reloads and then about us page appears this is called server side routing
+2.client side routing-in client side routing all componnets are loads at initially it is just components replacing each other for example if i am in body of an web app and if i click "about us" then it will not make any network to call to fetch data instead it is alrerady present it "about section" just replaces the body of app and about section appears
+
+
+why react is single page application??
+-because all components loads initially it is just components getting interchanged via client side routing
+
+-when we use <Link></Link> to amke anything link behind the scenes it uses anchor tag<a></a>.Browsers does not understand Link tag
+
 
 
 
