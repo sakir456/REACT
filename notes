@@ -247,6 +247,66 @@ why react is single page application??
 -when we use <Link></Link> to amke anything link behind the scenes it uses anchor tag<a></a>.Browsers does not understand Link tag
 
 
+- a functional component is a normal javascript function which returns some piece of jSX
+- a class component is a class which extends React component which has render method which returns some piece of JSX
+
+-whenever use class based componnet in file import (import React from "react";) or (import { component } from "react";)
+
+-In class component alaways first "constructor" will be called then "render" will be called and at last "component did mount" will be called
+
+-There are 2 phases in for execution of class based componenet in mounting phase 1.Render phase 2. commit phase
+
+-Render phase- execution of constructor and render will happen
+-Commit phase-react will update the DOM and then execution of component did mount happens
+-if there is parent and 2 children then called method in following order
+
+Render Phase
+-parent constructor
+-parent render
+-1st child constructor
+-1st child render
+-2nd child constructor
+-2nd child render
+
+ commit phase
+ -Dom manupulation happens it happens in single batch
+-1st child component did mount
+-2nd child component did mount
+-parent component did mount
+
+what will happen is first react will complete (Render phase) in render phase constructor and render is included so parent contructor and render will be called then first child contstructor and  render will be called and then second child constructor and render will be called (here Render phase is over) in (commit phase) updation of DOM takes place and  then component did mount phase of both child   will be called and then component did mount of parent will be called 
+
+basically react batches up the render phase of both children and then batches up commit phase of both the children 
+
+-Dconfused why after  first child constructor and render first child  component did mount will not called?? 
+-so heres the reason what happens is after  first child constructor and render (Render phase ) and second child constructor and render (Render phase )is left thats why react will first complete Render phase(constructor and render of second child) and commit Phase happens of  both child and parent in which react updates DOM and then component did  mount happens for both child  it will be called then parent component did mount will be called. 
+
+
+complete life cycle of class based componenet
+
+<!-- ------Mounting Cycle
+-constructor(dummy data)
+-Render (dummy data)
+-DOM updates(HTML with dummy data)
+-component did mount
+    api call
+    <!-- this.setState--->state variable is updated -->
+
+<!-- -----Update Cycle
+Render(API data)
+-DOM updates(HTML with API data)
+component did update --> -->
+
+<!-- ------Unmounting Cycle
+component will umnount(this basically callled when content is unmount from web page like if you are in about section and now if you go to contact us section componnet will unmount will be called )
+ -->
+- wondering what is use component will unmount ?
+so answer is consider you are on about section and if you write [setinterval (()=>{ console.log(""react)},1000) ] setinterval to console react after every 1 second inside componnet did mount now after changing page (remember react is single page application "after changing pages is written for better undertanding")
+say suppose now you move  to home page from about then setinterval should stop but it will not since react is single page application so whenever there is component chnge happens(moving from about to home) then we need to clear thing like setinterval and that thing happens inside component will unmount .
+
+-how will you clear setinterval if its declare inside useeffect in function based component ??
+-you can do this by writing return( () => {  })-like this and clearinterval inside return function(remember this will be called when changing page(precisely  changing componnent))
+
 
 
 
