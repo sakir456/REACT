@@ -305,7 +305,15 @@ so answer is consider you are on about section and if you write [setinterval (()
 say suppose now you move  to home page from about then setinterval should stop but it will not since react is single page application so whenever there is component chnge happens(moving from about to home) then we need to clear thing like setinterval and that thing happens inside component will unmount .
 
 -how will you clear setinterval if its declare inside useeffect in function based component ??
--you can do this by writing return( () => {  })-like this and clearinterval inside return function(remember this will be called when changing page(precisely  changing componnent))
+-you can do this by writing return( () => {  })   -like this and clearinterval inside return function(remember this will be called when changing page(precisely  changing componnent))
+
+
+<!-- -Alaways write modular code i.e code should follow single responsibility principle .divide code into different componnet and each component should follow single responsibility principle like header,restaurantcard,restaurantmenu,body etc -->
+
+what is code splitting/chunking/Lazy loading/many other??
+-parcel alaways bundles  all the files and provide the single to browser but if application is very big then bundling into single file is not appropriate because your app can become very slow so here comes teh concept called code spliiting in which you can split code logically according to your needs by these you can provide multiple files to browser(do not code split like diferent component of single application but you can code split like if inside any application any other application runs like if inside swiggy food deleivering app there is link to go to swiggy instamart then you can code split swiggy instamart or like make my trip application it provides different services like train ticket booking,airplane ticket booking,hotelstays,homestays etc so you can code split train ticket,airplaine ticket,hotel stays,homestays) 
+
+
 
 
 
