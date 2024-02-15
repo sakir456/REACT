@@ -316,17 +316,22 @@ what is code splitting/chunking/Lazy loading/many other??
 
 
 different options of writing css in place of traditional  css writing style are:
--SASS and SCSS
+ -SASS and SCSS
 -style component
--using different libraries and frameworks like material UI,chakra UI,bootstrap,ant design
+-using different libraries and frameworks like material UI,chakra UI,bootstrap,ant design 
 
 
 -Rememeber:while using tailwind css if it stop giving suggestion just use ctrl+spacebar(windows)
 
+-higher order component- is function which takes component as input and give component
 
+-uncontrolled component-when a parent does not have  a control over its children its known as uncontrolled component
 
+-lifting the state up-Read more from react.dev and search lifting the state up(important interview question)
 
+<!-- -you can create context in react which is accessible anywhere in the application you access it you can use hookm useContext (in functional componnet)-->
 
+<!-- -in class based component to access context there is no hook, to access it there is .Consumer through which we can acess the context anywhere in react application -->
 
 
 
