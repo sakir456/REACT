@@ -60,15 +60,6 @@ cdn links is not prefeered way to bring react or react-dom into your project why
 
 -for production build we use npx parcel build index.html and same as happens as development build
 
-
-
-
-
-
-
-
-
-
 steps to  start create own react app
 <!-- -npm init
 -npm install -D parcel(-D to install parcel(bundler)as dev dependency)
@@ -332,6 +323,14 @@ different options of writing css in place of traditional  css writing style are:
 <!-- -you can create context in react which is accessible anywhere in the application you access it you can use hookm useContext (in functional componnet)-->
 
 <!-- -in class based component to access context there is no hook, to access it there is .Consumer through which we can acess the context anywhere in react application -->
+
+-Redux is not mandatory in application 
+
+-In early versions of redux redux doesnot allow developers to mutate the state but in newer version mutating state is compulsory even though developers mutate the state in newer version but redux behind the scenes uses older way of immutating it uses library called immer which finds diff between two states and give new state.
+
+-
+
+
 
 
 
