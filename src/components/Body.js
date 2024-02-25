@@ -28,9 +28,7 @@ const Body = () => {
 
     const json = await data.json();
     console.log(json)
-    console.log(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants
-
-      )
+    console.log(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants)
   
     // Optional Chaining
     setListOfRestraunt(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants);
@@ -58,6 +56,7 @@ return listOfRestaurants.length === 0 ? (
           
           <input
             type="text"
+             data-testid="searchInput"
             className=" border border-solid border-black"
             value={searchText}
             onChange={(e) => {

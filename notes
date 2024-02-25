@@ -88,6 +88,31 @@ import ReactDOM from "react-dom/client"; (in js file)
 
 remember:if after opening live server at localhost 1234 using npm install build fails just delete .parcel-cache and node _modules file and regenerate it using
 npm install for node_modules and npx parcel index.html for .parcel-cache
+
+To install tetsing library follow steps
+-install react testing library-npm i -D @testing-library/react
+- install jest-npm i -D jest
+--install babel dependencies-npm install --save-dev babel-jest @babel/core @babel/preset-env
+-configure babel-make babel.config.js at root and paste this module.exports = {
+    presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+  }; 
+-configure parcel config file to disable default babel transpilation-create file with name parcelrc and paste this {
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{js,mjs,jsx,cjs,ts,tsx}": [
+      "@parcel/transformer-js",
+      "@parcel/transformer-react-refresh-wrap"
+    ]
+  }
+}
+remember:in package.json file in first block replace test:echo something something...... with test:"jest"
+-jest configuration-npx jest --init
+-give anser to questions accordingly(repeat this portion of video)
+-install jsdom Library-npm install --save-dev jest-environment-jsdom
+
+
+
+
    -->
 
  what does parcel do for you??
@@ -328,9 +353,26 @@ different options of writing css in place of traditional  css writing style are:
 
 -In early versions of redux redux doesnot allow developers to mutate the state but in newer version mutating state is compulsory even though developers mutate the state in newer version but redux behind the scenes uses older way of immutating it uses library called immer which finds diff between two states and give new state.
 
--
+<!-- -Types of Testing -->
+-Unit Testing
+-Integration Testing
+-End of End Testing -e2e Testing 
 
+-React testing Library is used for Testing which built over DOM testing Library.
+-React testing Library or DOM testing Library uses jest
 
+-Jest is javascript testing framework
+-React testing Library uses jest
+
+-__tests__-what is two underscores before testes it is called dunder tests(just google dunder test)
+-when you do console.log in test check it returns JSX element that is react element that is object
+
+-when we do const something=screen.getByRole(or screen.anything) its called querying
+
+-every Test case include render,querying,assertion
+-you can group your test case
+
+-After adding("watch-test":"jest --watch") to your package.json if you write (npm run watch-test ) to run test whenever you make any change it will automatically run test
 
 
 
